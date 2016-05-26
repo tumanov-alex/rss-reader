@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RSS Tumanov</title>
+    <script src="libs/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="libs/google.jsapi.js">
+    </script>
+    <script type="text/javascript" src="libs/gfeedfetcher.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="./libs/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="libs/bootsrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="channels">
+                <div class="channel-ctrl input-group-sm">
+                    <input type="text" placeholder="channel name" value="REDDIT" class="channelLabel form-control">
+                    <input type="text" placeholder="channel url" value="https://www.reddit.com/r/jokes.rss" class="channelAddr form-control">
+                    <button class="createChannel btn btn-default btn-sm">Add</button><br>
+                </div>
+                <hr>
+                <div class="center">
+                    <span>Channels number: </span>
+                    <span class="channelsNumber">0</span>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <hr>
+            <div class="center">
+                <div>
+                    <span>Messages number: </span>
+                    <span class="messagesNumber">0</span>
+                    <div>
+                        <span>Authors number: </span>
+                        <span class="authorsNumber">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+            </div>
+            <hr>
+            <div id="feeds"></div>
+        </div>
+        <div class="col-sm-5">
+            <div class="messageTitle">
+                <hr>
+                <p>Message: </p>
+                <hr>
+            </div>
+            <div class="messageContainer"></div>
+            <div class="stats">
+                <div id="canvas-holder"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chartConfig.js"></script>
+    <script src="chartFunctions.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
