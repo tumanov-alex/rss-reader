@@ -127,5 +127,3 @@ $(document).on('click', '.channel', function () {
     label = label.replace(/[^a-zA-Z]/g, "");
     setChannel(label);
 });
-
-// if msg is empty - do not show chart
