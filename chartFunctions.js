@@ -37,7 +37,7 @@ var setChartValues = function(values) {
 };
 
 var paintChart = function(values) {
-    // was chart already painted?
+    // was chart already created?
     if(config.data.datasets[0].data.length) {
         setChartValues(values);
         window.myDoughnut.update();

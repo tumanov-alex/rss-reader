@@ -1,6 +1,4 @@
 var newsfeed = new gfeedfetcher("feeds", "feeds");
-newsfeed.displayoptions("label snippet"); //show the specified additional fields
-newsfeed.definetemplate("<p>{label}- {title}</p>");
 newsfeed.setentrycontainer("li class='title'"); //Display each entry as a <li>
 newsfeed.filterfeed(100, "date"); //Show maximum 100 entries, sort by date
 var actualChannel;
