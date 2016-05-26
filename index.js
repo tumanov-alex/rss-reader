@@ -115,11 +115,15 @@ $(document).on('click', '.title', function () {
     var msgIndex = $(this).index(),
         msg      = newsfeed.feeds[msgIndex].content.replace(/(<([^>]+)>)/ig, '');
 
-    $('.messageTitle').show();
-    $('.messageContainer').html(msg);
-    $('#canvas-holder').append('<canvas id="chart-area" />');
-    paintChart(msg.countChars());
-    $('.messageContainer').attr('label', newsfeed.feeds[msgIndex].ddlabel);
+    if(msg) {
+        $('.messageTitle').show();
+        $('.messageContainer').html(msg);
+        $('#canvas-holder').append('<canvas id="chart-area" />');
+        paintChart(msg.countChars());
+        $('.messageContainer').attr('label', newsfeed.feeds[msgIndex].ddlabel);
+    } else {
+        $('.messageContainer').html('No message provided');
+    }
 });
 
 $(document).on('click', '.channel', function () {
