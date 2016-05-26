@@ -113,7 +113,7 @@ $(document).on("click", '.delete-channel', function () {
 // detect which message user wants to look at, then display it and attach channel label to message
 $(document).on('click', '.title', function () {
     var msgIndex = $(this).index(),
-        msg      = newsfeed.feeds[msgIndex].content;
+        msg      = newsfeed.feeds[msgIndex].content.replace(/(<([^>]+)>)/ig, '');
 
     $('.messageTitle').show();
     $('.messageContainer').html(msg);
@@ -127,3 +127,5 @@ $(document).on('click', '.channel', function () {
     label = label.replace(/[^a-zA-Z]/g, "");
     setChannel(label);
 });
+
+// if msg is empty - do not show chart
