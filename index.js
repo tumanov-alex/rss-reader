@@ -1,4 +1,6 @@
 var newsfeed = new gfeedfetcher("feeds", "feeds");
+newsfeed.displayoptions("label snippet"); //show the specified additional fields
+newsfeed.definetemplate("<div style='display: none'>{label}</div>{title}");
 newsfeed.setentrycontainer("li class='title'"); //Display each entry as a <li>
 newsfeed.filterfeed(100, "date"); //Show maximum 100 entries, sort by date
 var actualChannel;
@@ -116,7 +118,6 @@ $(document).on('click', '.title', function () {
     if(msg) {
         $('.messageTitle').show();
         $('.messageContainer').html(msg);
-        $('#canvas-holder').append('<canvas id="chart-area" />');
         paintChart(msg.countChars());
         $('.messageContainer').attr('label', newsfeed.feeds[msgIndex].ddlabel);
     } else {
