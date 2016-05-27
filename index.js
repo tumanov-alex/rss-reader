@@ -28,11 +28,15 @@ $('.createChannel').click(function () {
         addrInput.val('');
         newsfeed.addFeed(label, addr);
         newsfeed.init();
-        var channel = "<div class='channel'><p class='channelsListName'>" + label + "</p><div class='delete-channel'><i class='fa fa-trash-o'></i></div></div>";
-        $('.channels').append($(channel));
-        $('.channelsNumber').html(newsfeed.feedlabels.length);
         newsfeed.onfeedload = function() {
-            setChannel(label);
+            if($('#feeds').is(':empty')) {
+                alert('Wrong address');
+            } else {
+                setChannel(label);
+                var channel = "<div class='channel'><p class='channelsListName'>" + label + "</p><div class='delete-channel'><i class='fa fa-trash-o'></i></div></div>";
+                $('.channels').append($(channel));
+                $('.channelsNumber').html(newsfeed.feedlabels.length);
+            }
         };
     } else {
         console.log('Channel already exists');
@@ -51,7 +55,7 @@ function setChannel(label) {
     for(var i = feedNodes.length-1; i >= 0; --i) {
         $(feedNodes[i]).show();
         labelFeed = feedNodes[i].children[0].children[0].innerText;
-        if(labelFeed != label) {
+        if(labelFeed !== label) {
             $(feedNodes[i]).hide();
             hiddenFeeds++;
         }
